@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo e Cidade: Uma Conexão Vital</title>
+    <style>
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        header p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #45a049;
+            transform: translateY(-3px);
+        }
+        
+        /* Seção de introdução */
+        .intro {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #2E8B57;
+        }
+        
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Seção de comparação */
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #f9f9f9;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2E8B57;
+        }
+        
+        /* Seção de conexão */
+        .connection {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .connection h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2E8B57;
+        }
+        
+        .connection-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .connection-item {
+            flex: 1 1 300px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .connection-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .connection-item h3 {
+            margin-bottom: 15px;
+            color: #2E8B57;
+        }
+        
+        /* Galeria */
+        .gallery {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2E8B57;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #2E8B57;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #d4e6d8;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.2rem;
+            }
+            
+            .intro h2, .connection h2, .gallery h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Campo e Cidade</h1>
+        <p>Celebrando a conexão vital que alimenta, inspira e fortalece nossa sociedade</p>
+        <a href="#intro" class="btn">Explore essa relação</a>
+    </header>
+    
+    <section id="intro" class="intro">
+        <h2>Uma Só Comunidade</h2>
+        <p>O campo e a cidade são duas faces da mesma moeda, interdependentes e complementares. Enquanto o campo fornece os recursos essenciais para a vida urbana, a cidade oferece tecnologia, serviços e mercados que impulsionam o desenvolvimento rural.</p>
+        <p>Juntos, formam um ecossistema harmonioso que sustenta nossa existência e progresso.</p>
+    </section>
+    
+    <section class="comparison">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Vida no campo">
+            <h3>Vida no Campo</h3>
+            <p>O campo é o coração da produção de alimentos, fonte de matéria-prima e guardião da biodiversidade. Suas paisagens inspiram arte e cultura, enquanto seus valores fortalecem comunidades unidas.</p>
+        </div>
+        
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Vida na cidade">
+            <h3>Vida na Cidade</h3>
+            <p>A cidade é o centro de inovação, cultura e serviços. Seu dinamismo gera oportunidades e conecta pessoas, criando um ambiente diverso onde ideias florescem e economias se desenvolvem.</p>
+        </div>
+        
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Conexão entre campo e cidade">
+            <h3>A Conexão</h3>
+            <p>Esta relação simbiótica alimenta nossas mesas, impulsiona nossas economias e enriquece nossas culturas. Reconhecer e valorizar essa conexão é essencial para um futuro sustentável.</p>
+        </div>
+    </section>
+    
+    <section class="connection">
+        <h2>Pontes que Nos Unem</h2>
+        <div class="connection-container">
+            <div class="connection-item">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alimentos do campo na cidade">
+                <h3>Alimentação</h3>
+                <p>Os produtos agrícolas viajam do campo para a cidade, nutrindo milhões enquanto geram renda para as famílias rurais.</p>
+            </div>
+            
+            <div class="connection-item">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tecnologia na agricultura">
+                <h3>Tecnologia</h3>
+                <p>As inovações urbanas chegam ao campo, aumentando a produtividade e sustentabilidade da agricultura.</p>
+            </div>
+            
+            <div class="connection-item">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Intercâmbio cultural">
+                <h3>Cultura</h3>
+                <p>Tradições rurais enriquecem a identidade urbana, enquanto a cultura da cidade influencia as expressões do campo.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="gallery">
+        <h2>Harmonia em Imagens</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Produtos agrícolas no mercado">
+                <div class="gallery-caption">Feiras urbanas com produtos direto do campo</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Turismo rural">
+                <div class="gallery-caption">Urbanos descobrindo a beleza da vida rural</div>
+            </div>
+            
+
+            
+            
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Infraestrutura no campo">
+                <div class="gallery-caption">Tecnologia urbana melhorando a vida rural</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Festival campestre">
+                <div class="gallery-caption">Celebrações que unem campo e cidade</div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Celebrando a relação entre campo e cidade</p>
+        <p>© 2023 - Todos os direitos reservados</p>
+        <div class="social-icons">
+            <a href="#">📱</a>
+            <a href="#">📷</a>
+            <a href="#">🔗</a>
+            <a href="#">📹</a>
+        </div>
+    </footer>
+</body>
+</html>
